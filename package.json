@@ -1,0 +1,14 @@
+{
+  "name": "contrato",
+  "version": "1.0.0",
+  "description": "Contrato prueba balam",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "EdwinH",
+  "license": "MIT",
+  "devDependencies": {
+    "near-sdk-as": "^3.2.3"
+  }
+}
