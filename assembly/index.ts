@@ -1,13 +1,46 @@
-import { logging, PersistentUnorderedMap } from "near-sdk-as";
-export const comentarios = new PersistentUnorderedMap<string, string>("COMENTARIOS");
+import { logging, PersistentUnorderedMap, u128} from "near-sdk-as";
+import { Comentario, comentariosTotal } from "./model";
+const IndexComentarios = comentariosTotal.length;
 
 // escitura de comentarios
-export function setComentario(id: string, TituloComentario: string): void {
-    comentarios.set(id, TituloComentario);
+export function SetComentario( comentario : String, Imagen : ImageBitmap, Donacion: u128, Lugar_comentario : String,Titulo:String): Comentario {
+    const newComent = new Comentario( comentario , Imagen , Donacion, Lugar_comentario,Titulo );
+    comentariosTotal.push(newComent);
+    logging.log('Comentario subido: ' + newComent.Titulo)
+    return newComent;
 }
 
-//lectura de comentarios
-export function getComentario(id: string): string | null {
-    return comentarios.get(id);
+//lectura de tdos los comentarios
+export function getComentarios(): Comentario[] {
+    const data = new Array<Comentario>(IndexComentarios);
+    for(let i = 0; i < IndexComentarios; i++) {
+        data[i] = comentariosTotal[i]
+    }
+    return data;
 }
+
+//Buscar Comentario especifico
+export function getBook(ComentarioIndex: i32): Comentario {
+    if(comentariosTotal.length < ComentarioIndex) {
+        logging.log('EL comentario no existe')
+    }
+    return comentariosTotal[ComentarioIndex]
+}
+
+//total de comentarios almacenados 
+export function comentarioLenght(): number {
+    return comentariosTotal.length;
+}
+
+//eliminar comentario especifico
+export function EliminarComentario(ComentarioIndex: i32): boolean {
+    if(comentariosTotal.length < ComentarioIndex) {
+        logging.log('Este comentario aún no existe')
+        return false
+    }
+    comentariosTotal.swap_remove(ComentarioIndex);
+    logging.log('Comentario Eliminado');
+    return true
+}
+
 
