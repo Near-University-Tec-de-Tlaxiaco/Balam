@@ -3,7 +3,7 @@ import { Comentario, comentariosTotal } from "./model";
 const IndexComentarios = comentariosTotal.length;
 
 // escitura de comentarios
-export function SetComentario( comentario : String, Imagen : ImageBitmap, Donacion: u128, Lugar_comentario : String,Titulo:String): Comentario {
+export function SetComentario( comentario : String, Imagen : String, Donacion: u128, Lugar_comentario : String,Titulo:String): Comentario {
     const newComent = new Comentario( comentario , Imagen , Donacion, Lugar_comentario,Titulo );
     comentariosTotal.push(newComent);
     logging.log('Comentario subido: ' + newComent.Titulo)
@@ -20,7 +20,7 @@ export function getComentarios(): Comentario[] {
 }
 
 //Buscar Comentario especifico
-export function getBook(ComentarioIndex: i32): Comentario {
+export function getComentario(ComentarioIndex: i32): Comentario {
     if(comentariosTotal.length < ComentarioIndex) {
         logging.log('EL comentario no existe')
     }
@@ -33,7 +33,7 @@ export function comentarioLenght(): number {
 }
 
 //eliminar comentario especifico
-export function EliminarComentario(ComentarioIndex: i32): boolean {
+export function EliminarComentario(ComentarioIndex: i32): bool {
     if(comentariosTotal.length < ComentarioIndex) {
         logging.log('Este comentario aún no existe')
         return false
