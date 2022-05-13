@@ -45,9 +45,10 @@ export function EliminarComentario(ComentarioIndex: i32): bool {
 
 // buscar comentario
 export function BuscarComentario(Buscar: String): Comentario {
-    
+    const data = new Array<Comentario>(IndexComentarios);
     for(let i = 0; i < IndexComentarios; i++) {
-        if (comentariosTotal[i].Titulo==Buscar) {
+        data[i] = comentariosTotal[i];
+        if (data[i].Titulo==Buscar) {
             return comentariosTotal[i]
         }
         
