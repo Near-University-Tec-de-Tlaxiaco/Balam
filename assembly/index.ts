@@ -3,8 +3,8 @@ import { Comentario, comentariosTotal } from "./model";
 const IndexComentarios = comentariosTotal.length;
 
 // escitura de comentarios
-export function SetComentario( comentario : String, Imagen : String, Donacion: u128, Lugar_comentario : String,Titulo:String): Comentario {
-    const newComent = new Comentario( comentario , Imagen , Donacion, Lugar_comentario,Titulo );
+export function SetComentario( comentario : String,  Lugar_comentario : String,Titulo:String): Comentario {
+    const newComent = new Comentario( comentario ,   Lugar_comentario,Titulo );
     comentariosTotal.push(newComent);
     logging.log('Comentario subido: ' + newComent.Titulo)
     return newComent;
