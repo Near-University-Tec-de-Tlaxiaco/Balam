@@ -43,4 +43,16 @@ export function EliminarComentario(ComentarioIndex: i32): bool {
     return true
 }
 
+// buscar comentario
+export function BuscarComentario(Buscar: String): Comentario {
+    
+    for(let i = 0; i < IndexComentarios; i++) {
+        if (comentariosTotal[i].Titulo==Buscar) {
+            return comentariosTotal[i]
+        }
+        
+    }
+    logging.log("No se encontro el comentario")
+    return comentariosTotal[IndexComentarios+2];
+}
 
