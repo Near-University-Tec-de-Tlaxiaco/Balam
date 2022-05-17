@@ -10,7 +10,7 @@ export function SetComentario( comentario : String,  Lugar_comentario : String,T
     return newComent;
 }
 
-//lectura de tdos los comentarios
+//lectura de todos los comentarios
 export function getComentarios(): Comentario[] {
     const data = new Array<Comentario>(IndexComentarios);
     for(let i = 0; i < IndexComentarios; i++) {
@@ -43,19 +43,6 @@ export function EliminarComentario(ComentarioIndex: i32): bool {
     return true
 }
 
-/*buscar comentario
-export function BuscarComentario(Buscar: String): Comentario {
-    const data = new Array<Comentario>(IndexComentarios);
-    for(let i = 0; i < IndexComentarios; i++) {
-        data[i] = comentariosTotal[i];
-        if (data[i].Titulo==Buscar) {
-            return comentariosTotal[i]
-        }
-        
-    }
-    logging.log("No se encontro el comentario")
-    return comentariosTotal[IndexComentarios+2];
-}
-*/
+
 
 
