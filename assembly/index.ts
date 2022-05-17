@@ -43,20 +43,6 @@ export function EliminarComentario(ComentarioIndex: i32): bool {
     logging.log('Comentario Eliminado');
     return true;
 }
-//buscar comentario
-export function BuscarComentario(Buscar: String): Comentario {
-    const data = new Array<Comentario>(IndexComentarios);
-    for(let i = 0; i < IndexComentarios; i++) {
-        data[i] = comentariosTotal[i];
-        if (data[i].Titulo==Buscar) {
-            return comentariosTotal[i]
-        }
-        
-    }
-    logging.log("No se encontro el comentario")
-    return comentariosTotal[IndexComentarios+2];
-}
-
 
 
 
