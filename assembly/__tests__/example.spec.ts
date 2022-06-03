@@ -24,8 +24,8 @@ describe("Subir Comentario", () => {
 
 
 
-describe("getBooks", () => {
-  it('should return all books', () => {
+describe("get comentario", () => {
+  it('retorna los comentarios', () => {
       expect(getComentarios()).toStrictEqual(data)
   })
 })
