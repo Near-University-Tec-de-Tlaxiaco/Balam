@@ -1,32 +1,36 @@
 
-import { logging, PersistentUnorderedMap, u128} from "near-sdk-as";
-import { Comentario, comentariosTotal } from "../model";
-import {SetComentario, getComentarios, getComentario, comentarioLenght, EliminarComentario} from ".."
+import { Comentario, lugar } from "../model";
+import {SetComentario, getComentario,  setLugar} from ".."
+const id_lugar_comentario = 0;
+const id_comentario = 0;
 const comentario = 'Bonito lugar';
-const Lugar_comentario = 'Chalcatongo';
 const Titulo = 'Recomiendo este lugar';
 
-const comentarioIndexx = comentariosTotal.length;
-let ComentarioNuevo = new Comentario(comentario, Lugar_comentario,Titulo);
+let ComentarioNuevo = new Comentario(id_lugar_comentario,id_comentario,comentario,Titulo);
 
-
-const data = new Array<Comentario>(comentarioIndexx);
-for(let i=0; i < comentarioIndexx; i++) {
-    data[i] = comentariosTotal[i]
-}
-
-describe("Subir Comentario", () => {
-  it('Si el nuevo comentario que se sube es el correcto', () => {
-      expect(SetComentario('Bonito lugar', 'Chalcatongo', 'Recomiendo este lugar')).toStrictEqual(ComentarioNuevo);
-  })
-})
+let lugarNuevo = new lugar(0,"Tlaxiaco","kajndkjs","kjsndskd");
 
 
 
 
-describe("get comentario", () => {
-  it('retorna los comentarios', () => {
-      expect(getComentarios()).toStrictEqual(data)
-  })
-})
+describe("si funciona Subir Comentario", () => {
+  it('setComentario()', () => {
+      expect(SetComentario(0,'Bonito lugar', 'Recomiendo este lugar')).toStrictEqual(ComentarioNuevo);
+  });
+});
 
+
+describe("revisa si la funcion getcomentrio funciona", () => {
+  it('getcomentario()', () => {
+    SetComentario(0,'Bonito lugar','Recomiendo este lugar');
+      expect(getComentario(0)).toStrictEqual(ComentarioNuevo);
+  });
+});
+
+
+describe("Revisa si la inserccion de lugares funciona", () => {
+  it('setLugar()', () => {
+    
+    expect(setLugar("Tlaxiaco","kajndkjs","kjsndskd")).toStrictEqual(lugarNuevo)
+  });
+});
