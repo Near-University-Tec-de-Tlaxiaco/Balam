@@ -49,3 +49,13 @@ near call (SUBCUENTA TESTNET) comentarioLenght  --accountId (CUENTA TESTNET)
 ```
 near call (SUBCUENTA TESTNET) EliminarComentario '{"ComentarioIndex": 0}' --accountId (CUENTA TESTNET)
 ```
+## Integrantes del equipo
+
+ | **Nombre** | **Rol** | 
+  |------------|-----|
+  |Israel Nicolás Pérez| Lider del Proyecto :+1:
+  |Edwin Aldair Heras Cuevas|Programador :computer: :question:
+  |Uzias Victoriano López García| Diseñador :dizzy:
+  |Imanol García Zúñiga| Tester :mag:
+___
+
