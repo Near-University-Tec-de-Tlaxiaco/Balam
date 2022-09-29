@@ -57,7 +57,7 @@ export function comentarioLenght(): number {
 
 //eliminar comentario especifico
 export function EliminarComentario(ComentarioIndex: i32): bool {
-    if(comentariosTotal.length < ComentarioIndex) {
+    if  (comentariosTotal.length < ComentarioIndex) {
         logging.log('Este comentario aún no existe');
         return false;
     }
