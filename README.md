@@ -17,18 +17,45 @@ El repositorio almacena el contrato inteligente del proecto balam que consiste e
 ## Compilacion del contrato
 1. Ingresar a nuestra cuenta testnet con ``near login``, se abrira nuestro navegador para poder ingresar
 2. compilar el contrato con ``yarn asb`` 
-3. implementar el contrato con ``near deploy --accounId (SUBCUENTA TESTNET) --wasmFile build/release/contrato.wasm`` 
+3. implementar el contrato con ``near deploy --accountId (CUENTA TESTNET) --wasmFile build/release/contrato.wasm`` 
 
 ## llamar funciones
-
+* ingresar Lugar nuevo
+```
+near call (SUCUENTA TESTNET) setLugar '{"lugar_nombre" : "Tlaxiaco", "imagen": "akjsndkjasndk", "posicion_mapa" : "kjsndnakj"}' --accountId (CUENTA TESTNET)
+```
+* visualizar todos los lugares registrados
+```
+ near call (SUBCUENTA TESTNET) getLugares --accountId (CUENTA TESTNET)
+ ```
 * ingresar comentario
-> ``near call (SUBCUENTA TESTNET) SetComentario '{"comentario" : "bonito lugar",  "Lugar_comentario" : "Tlaxiaco","Titulo" : "Recominedo visitar este lugar"}' --accountId (CUENTA TESTNET)`` 
+```
+near call (SUBCUENTA TESTNET) SetComentario '{"id_lugar_comentario" : 0, "comentario": "Bonito lugar", "Titulo": "Lugar Magico" }' --accountId (CUENTA TESTNET)
+```
 * mostrar todos los comentario
-> ``near call (SUBCUENTA TESTNET) getComentarios  --accountId (CUENTA TESTNET)``
+```
+near call (SUBCUENTA TESTNET) getComentarios  --accountId (CUENTA TESTNET)
+```
 * mostrar comentario especifico
-> ``near call (SUBCUENTA TESTNET) getComentario '{"ComentarioIndex" : 0}' --accountId (CUENTA TESTNET)``
+```
+near call (SUBCUENTA TESTNET) getComentario '{"ComentarioIndex" : 0}' --accountId (CUENTA TESTNET)
+```
 * mostrar cuantos comentarios hay
-> ``near call (SUBCUENTA TESTNET) comentarioLenght  --accountId (CUENTA TESTNET)``
+```
+near call (SUBCUENTA TESTNET) comentarioLenght  --accountId (CUENTA TESTNET)
+```
 
 * eliminar comentario
-> ``near call (SUBCUENTA TESTNET) EliminarComentario '{"ComentarioIndex": 0}' --accountId (CUENTA TESTNET)``
+```
+near call (SUBCUENTA TESTNET) EliminarComentario '{"ComentarioIndex": 0}' --accountId (CUENTA TESTNET)
+```
+## Integrantes del equipo
+
+ | **Nombre** | **Rol** | 
+  |------------|-----|
+  |Israel Nicolás Pérez| Lider del Proyecto :+1:
+  |Edwin Aldair Heras Cuevas|Programador :computer: :question:
+  |Uzias Victoriano López García| Diseñador :dizzy:
+  |Imanol García Zúñiga| Tester :mag:
+___
+
